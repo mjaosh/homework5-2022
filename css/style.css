@@ -1,0 +1,194 @@
+
+/* Makes the header get blown up when user enters page*/
+header img {
+  animation: blowup 5s;
+}
+
+/* Makes the header get blown up when user enters page*/
+@keyframes blowup {
+  from {width: 25px; opacity: 0;}
+  to {width: 475px; opacity: 100;}
+}
+
+/* Adds background image and correct font*/
+body{
+    font-size: 1rem;
+    font-family: 'Poppins', serif;
+    background: url(../images/concrete_seamless.png) #f1f1f1
+     
+  }
+  
+  /* Makes the header and navigation aligned in a column and centered*/
+  header{
+    display:flex;
+    align-items:center; 
+    flex-direction: column; 
+
+  }
+
+  /* aligns the links on top of each other*/
+  .nav_links{
+    display: flex; 
+    flex-direction: column; 
+  }
+
+  /* makes sure links don't change colors when visited */
+  a{
+    color: blue;
+  }
+
+  /* aligns heading of the cards properly and curves the tops of the cards */
+  .card > header{
+    background: #288088;
+    border: solid 2px #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px; 
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+
+  /* curves backround of cards and sets the correct size and layout*/
+  .card {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+
+    display: flex; 
+    flex-direction: column; 
+    flex-basis: 450px; 
+
+  }
+
+
+  .pricing{
+    display: flex; 
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* allows for images to reformat when screen sizes changes*/
+  .gallery{
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+  }
+
+  /* adds borders to images*/
+  .gallery img{
+    border: solid 10px #50C7C7;
+    margin: 10px 10px 10px 10px; 
+    width: 300px; 
+
+  }
+
+  /* bigger screen size*/
+  @media screen and (min-width: 900px){
+
+    /* moves header image and nav links to opposite sides of the page */
+    header{
+      display:flex; 
+      flex-direction:row; 
+      justify-content: space-between;
+     
+      
+    }
+    /* displays nav links on a row*/
+    .nav_links{
+      display:flex; 
+      flex-direction: row; 
+    }
+
+
+    /* changes width of cards*/
+    .card {
+      flex-basis: 275px;
+     
+    }
+
+    .pricing{
+      display: flex; 
+      flex-direction: row;
+      flex-wrap: nowrap;
+
+    }
+
+    /* heading stays on top when user scrolls */
+    body > header{ 
+      position: fixed;
+      top: 0;
+      width: 100%;
+
+    }
+
+    /* adjust sizing for fixed heading */
+    .about{
+      margin-top: 100px;
+    }
+
+  } 
+
+  /* takes away logo animation for reduced motion settings*/
+  @media (prefers-reduced-motion:reduce) {
+    header img{
+      animation: none;  
+    }
+
+  } 
+
+  /* print view*/
+  @media print {
+
+    /* takes away background image*/
+    body{
+      font-family: Arial, Helvetica;
+      background-image: none;
+    }
+
+    /* displays the nav links evenly across the page*/
+    .nav_links{
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between; 
+    }
+
+    nav{
+      width: 80%;
+    }
+
+    /* aligns cards in a row and lines up the base of the cards*/
+    .pricing {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap; 
+      align-items:baseline;
+    }
+
+    /* adds borders to cards*/
+    .card{ 
+      border: solid 2px #45ADDD;
+      flex-basis: 325px; 
+    }
+
+
+    /* removes gallery */
+    .gallery{
+      display: none; 
+    }
+
+    #gallery{
+      display:none; 
+    }
+
+    /* adds thumbs up emoji*/
+    .card li:nth-child(2)::after{
+      content: "\01F44D"
+    }
+
+  } 
+
+  
+
+  
+
+
+
